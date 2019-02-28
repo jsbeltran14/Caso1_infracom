@@ -15,12 +15,14 @@ public class Main {
 	private static int numeroConsultas;
 	private static int tamanioBuffer;
 	
+	private static Buffer buffer;
+	
 	private static File archivo;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		leerArchivo();
-		System.out.println(getNumeroClientes());
+		buffer = new Buffer(numeroClientes, tamanioBuffer);
 	}
 	
 	public static void leerArchivo(){

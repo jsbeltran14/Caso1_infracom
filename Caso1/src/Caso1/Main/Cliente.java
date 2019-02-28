@@ -22,7 +22,17 @@ public class Cliente extends Thread{
 	}
 	
 	public void run(){
-		
+		while(!mensajes.isEmpty())
+		{
+			Mensaje x = mensajes.poll();
+			synchronized (x) {
+				buffer.almacenarMensaje(x);
+				try {x.wait();} catch (InterruptedException e) {e.printStackTrace();}
+			}
+			System.out.println("El valor del mensaje ahora es: " + x.getMensaje());
+		}
+		buffer.retirarCliente();
+		System.out.println("Cliente retirado");
 	}
 	
 	public int darId(){

@@ -2,10 +2,12 @@ package Caso1.Main;
 
 public class Mensaje {
 	
+	public final static int VALOR_INICIAL = 100;
+	
 	private int mensaje;
 	
 	public Mensaje(){
-		mensaje = 0;
+		mensaje = VALOR_INICIAL;
 	}
 
 	public int getMensaje() {
