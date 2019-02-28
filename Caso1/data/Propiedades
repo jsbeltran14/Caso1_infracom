@@ -1,0 +1,4 @@
+numero.clientes=10
+numero.servidores=2
+numero.consultas.cliente=5
+tamanio.buffer=4
