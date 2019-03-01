@@ -6,7 +6,10 @@ public class Mensaje {
 	
 	private int mensaje;
 	
-	public Mensaje(){
+	private int id;
+	
+	public Mensaje(int id){
+		this.id = id;
 		mensaje = VALOR_INICIAL;
 	}
 
@@ -16,5 +19,10 @@ public class Mensaje {
 
 	public void setMensaje(int mensaje) {
 		this.mensaje = mensaje;
+	}
+	
+	public int getId()
+	{
+		return id;
 	}
 }

@@ -18,29 +18,13 @@ public class Servidor extends Thread{
 			Mensaje m = buffer.atender();
 			if(m != null)
 			{
+				System.out.println("Servidor	#" + id + " | Modificando el mensaje #" + m.getId());
 				synchronized (m) {
 					m.setMensaje(m.getMensaje()+100);
 					m.notify();
 				}
-			}
-			else
-			{
 				yield();
 			}
 		}
 	}
-
-	//	public void run()
-	//	{
-	//		while(true)
-	//		{
-	//			if(buffer.getCantidadClientes()==0)
-	//				break;
-	//			Mensaje m=buffer.atender();
-	//			synchronized (m) {
-	//				m.setMensaje(m.getMensaje()+100);
-	//				m.notifyAll();
-	//			}
-	//		}
-	//	}
 }

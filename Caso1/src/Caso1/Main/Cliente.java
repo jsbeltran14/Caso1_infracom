@@ -19,7 +19,7 @@ public class Cliente extends Thread{
 		buffer = pBuffer;
 		mensajes=new LinkedList<>();
 		for (int i = 0; i < nMensajes; i++) {
-			mensajes.add(new Mensaje());
+			mensajes.add(new Mensaje(i));
 		}
 	}
 
@@ -27,14 +27,15 @@ public class Cliente extends Thread{
 		while(!mensajes.isEmpty())
 		{
 			Mensaje x = mensajes.poll();
+			System.out.println("Cliente		#" + id + " | Valor del mensaje #" + x.getId() + ": " + x.getMensaje());
 			synchronized (x) {
 				buffer.almacenarMensaje(x);
 				try {x.wait();} catch (InterruptedException e) {e.printStackTrace();}
 			}
-			System.out.println("El valor del mensaje ahora es: " + x.getMensaje());
+			System.out.println("Cliente		#" + id + " | Valor del mensaje #" + x.getId() + ": " + x.getMensaje());
 		}
 		buffer.retirarCliente();
-		System.out.println("Cliente retirado");
+		System.out.println("Cliente		#" + id + " | Retirada");
 	}
 
 	public int darId(){

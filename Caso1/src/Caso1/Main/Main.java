@@ -58,10 +58,12 @@ public class Main {
 		setNumeroServidores(Integer.parseInt(p.getProperty("numero.servidores")));	
 		setNumeroConsultas(Integer.parseInt(p.getProperty("numero.consultas.cliente")));
 		setTamanioBuffer(Integer.parseInt(p.getProperty("tamanio.buffer")));
-		System.out.println(numeroClientes);
-		System.out.println(numeroServidores);
-		System.out.println(numeroConsultas);
-		System.out.println(tamanioBuffer);
+		System.out.println("---------------------------------------------");
+		System.out.println("Número de clientes:			" + numeroClientes);
+		System.out.println("Número de servidores:			" + numeroServidores);
+		System.out.println("Número de mensajes por cliente:		" + numeroConsultas);
+		System.out.println("Capacidad del buffer:			" + tamanioBuffer);
+		System.out.println("----------------------------------------------");
 	}
 
 	public static int getNumeroClientes() {
