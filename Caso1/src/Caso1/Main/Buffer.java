@@ -31,6 +31,7 @@ public class Buffer {
 	
 	public synchronized Mensaje atender()
 	{
+		notifyAll();
 		return mensajes.poll();
 	}
 	
