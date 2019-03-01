@@ -23,6 +23,12 @@ public class Main {
 		// TODO Auto-generated method stub
 		leerArchivo();
 		buffer = new Buffer(numeroClientes, tamanioBuffer);
+		for (int i = 0; i < numeroClientes; i++) {
+			new Cliente(i, numeroConsultas, buffer).start();;
+		}
+		for (int i = 0; i < numeroServidores; i++) {
+			new Servidor(i, buffer).start();
+		}
 	}
 	
 	public static void leerArchivo(){
